@@ -1,7 +1,7 @@
 {
   "name": "skill-manager",
   "version": "1.0.0",
-  "description": "Agent Skill 管理器：扫描、查看并启用/禁用本地 Agent skills，默认适配 Codex。",
+  "description": "Agent Skill 管理器：扫描、查看并启用/禁用本地各类 Agent skills，默认内置 Codex 配对示例。",
   "main": "src/main.js",
   "author": "29636",
   "license": "MIT",
