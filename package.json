@@ -7,10 +7,12 @@
   "license": "MIT",
   "scripts": {
     "start": "electron .",
-    "scan": "node src/scan-cli.js"
+    "scan": "node src/scan-cli.js",
+    "pack:win": "electron-builder --win portable zip --x64"
   },
   "devDependencies": {
-    "electron": "^31.7.7"
+    "electron": "^31.7.7",
+    "electron-builder": "^26.15.3"
   },
   "build": {
     "appId": "com.local.skill-manager",
@@ -27,7 +29,6 @@
     "win": {
       "icon": "assets/app-icon.ico",
       "target": [
-        "nsis",
         "portable",
         "zip"
       ]
@@ -38,6 +39,10 @@
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
       "shortcutName": "skill管理器"
+    },
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "portable": {
+      "artifactName": "${productName}-便携启动器-${version}-${arch}.${ext}"
     }
   }
 }
