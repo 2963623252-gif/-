@@ -8,6 +8,10 @@ const {
   getActiveProfile,
 } = require('./agent-profiles');
 
+const appIconPath = path.join(__dirname, '..', 'assets', process.platform === 'win32' ? 'app-icon.ico' : 'app-icon.png');
+
+app.setAppUserModelId('com.local.skill-manager');
+
 let mainWindow;
 
 function createWindow() {
@@ -20,6 +24,7 @@ function createWindow() {
     frame: false,
     autoHideMenuBar: true,
     backgroundColor: '#0f172a',
+    icon: appIconPath,
     show: false,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),

@@ -23,7 +23,7 @@ html,
 body {
   margin: 0;
   min-height: 100%;
-  font-family: Inter, "Microsoft YaHei", "PingFang SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "思源宋体";
   background:
     radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 32rem),
     radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 26rem),
@@ -53,6 +53,26 @@ select {
   border-radius: 28px;
   background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.76));
   box-shadow: var(--shadow);
+}
+
+.hero-main {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.hero-icon {
+  width: 86px;
+  height: 86px;
+  flex: 0 0 auto;
+  border-radius: 24px;
+  object-fit: cover;
+  box-shadow: 0 0 28px rgba(56, 189, 248, 0.28), 0 0 42px rgba(124, 58, 237, 0.22);
+}
+
+.hero-copy {
+  min-width: 0;
 }
 
 .eyebrow {
@@ -807,17 +827,13 @@ tbody td:nth-child(5) {
   overflow: hidden;
 }
 
-.window-mark {
-  display: inline-grid;
-  place-items: center;
-  width: 22px;
-  height: 22px;
-  border: 1px solid rgba(56, 189, 248, 0.32);
+.window-icon {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
   border-radius: 8px;
-  color: #7dd3fc;
-  background: rgba(14, 165, 233, 0.08);
-  font-size: 13px;
-  line-height: 1;
+  object-fit: cover;
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.42);
 }
 
 .window-title {
@@ -940,4 +956,21 @@ thead th {
   position: static !important;
   top: auto !important;
   z-index: auto !important;
+}
+
+/* v1.6：软件图标适配 */
+@media (max-width: 720px) {
+  .hero {
+    align-items: stretch;
+  }
+
+  .hero-main {
+    align-items: flex-start;
+  }
+
+  .hero-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 18px;
+  }
 }

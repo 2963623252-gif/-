@@ -5,12 +5,13 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>skill管理器</title>
+    <link rel="icon" type="image/png" href="../assets/app-icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="window-bar" aria-label="窗口栏">
       <div class="window-drag-area">
-        <span class="window-mark">✦</span>
+        <img class="window-icon" src="../assets/app-icon.png" alt="" />
         <span class="window-title">skill管理器</span>
       </div>
       <div class="window-controls" aria-label="窗口控制">
@@ -22,10 +23,13 @@
 
     <main class="app-shell">
       <section class="hero">
-        <div>
-          <p class="eyebrow">Agent Skill Center</p>
-          <h1>skill管理器</h1>
-          <p class="subtitle">查看本机 Agent skills，按需开启或关闭。默认只展示中文摘要和使用方式，更多内容放在每个 skill 的下拉详情里。</p>
+        <div class="hero-main">
+          <img class="hero-icon" src="../assets/app-icon.png" alt="skill管理器图标" />
+          <div class="hero-copy">
+            <p class="eyebrow">Agent Skill Center</p>
+            <h1>skill管理器</h1>
+            <p class="subtitle">查看本机 Agent skills，按需开启或关闭。默认只展示中文摘要和使用方式，更多内容放在每个 skill 的下拉详情里。</p>
+          </div>
         </div>
         <div class="hero-actions">
           <button id="refreshBtn" class="button primary">刷新列表</button>
