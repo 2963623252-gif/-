@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>skill管理器</title>
+    <link rel="icon" type="image/png" href="../assets/app-icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="window-bar" aria-label="窗口栏">
+      <div class="window-drag-area">
+        <img class="window-icon" src="../assets/app-icon.png" alt="" />
+        <span class="window-title">skill管理器</span>
+      </div>
+      <div class="window-controls" aria-label="窗口控制">
+        <button id="minimizeBtn" class="window-control" type="button" aria-label="最小化">—</button>
+        <button id="maximizeBtn" class="window-control" type="button" aria-label="最大化或还原">□</button>
+        <button id="closeBtn" class="window-control close" type="button" aria-label="关闭">×</button>
+      </div>
+    </header>
+
+    <main class="app-shell">
+      <section class="hero">
+        <div class="hero-main">
+          <img class="hero-icon" src="../assets/app-icon.png" alt="skill管理器图标" />
+          <div class="hero-copy">
+            <p class="eyebrow">Agent Skill Center</p>
+            <h1>skill管理器</h1>
+            <p class="subtitle">查看本机 Agent skills，按需开启或关闭。默认只展示中文摘要和使用方式，更多内容放在每个 skill 的下拉详情里。</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <button id="refreshBtn" class="button primary">刷新列表</button>
+          <button id="openRootBtn" class="button ghost">打开目录</button>
+        </div>
+      </section>
+
+      <section class="stats-grid" aria-label="统计信息">
+        <article class="stat-card">
+          <span class="stat-label">扫描目录</span>
+          <strong id="rootPath">读取中...</strong>
+        </article>
+        <article class="stat-card small agent-card">
+          <span class="stat-label">当前 Agent</span>
+          <strong id="activeAgentName">读取中...</strong>
+          <span id="agentModeNote" class="agent-note-inline">基础版：重命名开关</span>
+        </article>
+        <article class="stat-card small">
+          <span class="stat-label">总数</span>
+          <strong id="totalCount">0</strong>
+        </article>
+        <article class="stat-card small success">
+          <span class="stat-label">开启</span>
+          <strong id="enabledCount">0</strong>
+        </article>
+        <article class="stat-card small muted">
+          <span class="stat-label">关闭</span>
+          <strong id="disabledCount">0</strong>
+        </article>
+      </section>
+
+      <section class="toolbar">
+        <label class="search-box">
+          <span>搜索</span>
+          <input id="searchInput" type="search" placeholder="输入 skill 名、中文功能、使用方式、路径或 GitHub..." />
+        </label>
+        <label class="filter-box">
+          <span>状态 / 分类</span>
+          <select id="statusFilter">
+            <option value="all">全部</option>
+            <option value="enabled">只看开启</option>
+            <option value="disabled">只看关闭</option>
+            <option value="user">用户安装</option>
+            <option value="system">系统内置</option>
+          </select>
+        </label>
+      </section>
+
+      <section class="notice">
+        <strong>提示：</strong>“功能和作用”只显示前两段中文摘要；点击“展开”查看原始说明、GitHub、路径等详细信息。开关修改后，建议新开对应 Agent 任务或重启对应 Agent 生效。
+      </section>
+
+      <section class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th class="switch-col">开关</th>
+              <th>Skill 名字</th>
+              <th>分类</th>
+              <th>功能和作用</th>
+              <th>使用方式</th>
+              <th class="detail-col">详情</th>
+            </tr>
+          </thead>
+          <tbody id="skillTableBody">
+            <tr>
+              <td colspan="6" class="empty">正在扫描...</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

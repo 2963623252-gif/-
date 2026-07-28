@@ -1,0 +1,14 @@
+{
+  "activeProfileId": "codex",
+  "profiles": [
+    {
+      "id": "codex",
+      "name": "Codex",
+      "skillsRoot": "C:\\Users\\29636\\.codex\\skills",
+      "activeFileName": "SKILL.md",
+      "disabledFileName": "SKILL.disabled.md",
+      "systemFolderName": ".system",
+      "enableMethod": "rename"
+    }
+  ]
+}

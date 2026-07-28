@@ -1,0 +1,48 @@
+{
+  "name": "skill-manager",
+  "version": "1.0.0",
+  "description": "Agent Skill 管理器：扫描、查看并启用/禁用本地各类 Agent skills，默认内置 Codex 配对示例。",
+  "main": "src/main.js",
+  "author": "29636",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "scan": "node src/scan-cli.js",
+    "pack:win": "electron-builder --win portable zip --x64"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.local.skill-manager",
+    "productName": "skill管理器",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "data/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "assets/app-icon.ico",
+      "target": [
+        "portable",
+        "zip"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "skill管理器"
+    },
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "portable": {
+      "artifactName": "${productName}-便携启动器-${version}-${arch}.${ext}"
+    }
+  }
+}
